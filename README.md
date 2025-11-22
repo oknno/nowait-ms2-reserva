@@ -1,41 +1,33 @@
-# ✅ **README – MS2 (Reserva)**
-
-**Copie e cole inteiro no projeto MS2.**
-
-````markdown
-# NoWait – MS2 Reserva
-
-## 1. JUnit
-
-### Rodar testes
-
-```bash
+📅 MS2 – Reserva
+1️⃣ JUnit – Testes Automatizados
+▶️ Rodar testes
 mvn test
-Resultado esperado
-Todos os testes OK
+
+✔️ Resultado esperado
+
+Testes OK
 
 Mensagem BUILD SUCCESS
 
-2. Swagger
-Rodar aplicação
-bash
-Copiar código
+2️⃣ Swagger – Documentação da API
+▶️ Rodar aplicação
 mvn spring-boot:run
-Abrir no navegador
-bash
-Copiar código
+
+▶️ Abrir no navegador
 http://localhost:8080/nowait-api/swagger-ui/index.html
-O que visualizar
+
+✔️ Verificar
+
 Endpoints /reservas
 
-Campo para enviar JSON e criar reserva
+Formulário para criar reservas
 
-3. Postman
-Rodar aplicação
-bash
-Copiar código
+3️⃣ Postman – Testes Manuais
+▶️ Rodar aplicação
 mvn spring-boot:run
-Criar requisições
+
+▶️ Criar requisições
+
 POST http://localhost:8080/nowait-api/reservas
 
 GET http://localhost:8080/nowait-api/reservas/{codigo}
@@ -44,57 +36,57 @@ GET http://localhost:8080/nowait-api/reservas?clienteId=CLI-123
 
 PATCH http://localhost:8080/nowait-api/reservas/{codigo}/cancelar
 
-Enviar e visualizar JSON
-4. FatJar
-Gerar JAR
-bash
-Copiar código
+✔️ Verificar
+
+JSON retornado corretamente
+
+Código da reserva
+
+Status atualizado
+
+4️⃣ FatJar – Geração
+▶️ Gerar JAR
 mvn clean package
-Arquivo gerado
-pgsql
-Copiar código
+
+📁 Arquivo gerado
 target/nowait-ms2-reserva-1.0.0-SNAPSHOT.jar
-Rodar JAR
-bash
-Copiar código
+
+▶️ Executar JAR
 java -jar target/nowait-ms2-reserva-1.0.0-SNAPSHOT.jar
-5. Docker
-Buildar imagem
-bash
-Copiar código
+
+5️⃣ Docker – Containerização
+▶️ Build da imagem
 docker build -t nowait-ms2-reserva:1.0.0 .
-Rodar container (porta 8081 local)
-bash
-Copiar código
+
+▶️ Rodar container (8081 local)
 docker run --rm -p 8081:8080 ^
-  -v "C:/Users/okn/Documents/noWait/Credenciais/application.properties:/config/application.properties" ^
-  -e SPRING_CONFIG_ADDITIONAL_LOCATION="file:/config/application.properties" ^
-  nowait-ms2-reserva:1.0.0
-6. Imagem ECR
-Taguear imagem
-bash
-Copiar código
+-v "C:/Users/okn/Documents/noWait/Credenciais/application.properties:/config/application.properties" ^
+-e SPRING_CONFIG_ADDITIONAL_LOCATION="file:/config/application.properties" ^
+nowait-ms2-reserva:1.0.0
+
+6️⃣ ECR – Publicação da Imagem
+▶️ Taguear imagem
 docker tag nowait-ms2-reserva:1.0.0 <ID>.dkr.ecr.<REGIAO>.amazonaws.com/nowait-ms2-reserva:1.0.0
-Enviar imagem
-bash
-Copiar código
+
+▶️ Enviar imagem
 docker push <ID>.dkr.ecr.<REGIAO>.amazonaws.com/nowait-ms2-reserva:1.0.0
-7. Tarefa ECS
-Criar Task Definition
+
+7️⃣ ECS – Task Definition
+
+Configurar:
+
 Imagem: nowait-ms2-reserva:1.0.0
 
-Porta container: 8080
+Porta: 8080
 
-8. Serviço ECS
-Criar serviço
-Usar Task Definition do MS2
+8️⃣ ECS – Service
+
+Criar serviço usando:
+
+A Task Definition do MS2
 
 Desired count = 1
 
-9. Load Balancer
-Acessar via ALB
-perl
-Copiar código
+9️⃣ Load Balancer
+▶️ Acessar via ALB
 http://<DNS-ALB>/nowait-api/reservas
-```
-````
